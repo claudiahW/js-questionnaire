@@ -1,11 +1,53 @@
+//using selectors inside the element
+const questions = document.querySelectorAll(".question");
 
-const btns = document.querySelectorAll(".question-btn");
+questions.forEach(function (question) {
+  const btn = question.querySelector(".question-btn");
+  // console.log(btn);
 
-//loop over btns
+  btn.addEventListener("click", function () {
+    // console.log(question);
 
-btns.forEach(function (btn) {
-    btn.addEventListener("click", function(e) {
-      const question = e.currentTarget.parentElement.parentElement;  
-      question.classList.toggle("show-text");
+    questions.forEach(function (item) {
+      if (item !== question) {
+        item.classList.remove("show-text");
+      }
     });
+
+    question.classList.toggle("show-text");
+  });
 });
+
+// traversing the dom
+// const btns = document.querySelectorAll(".question-btn");
+
+// btns.forEach(function (btn) {
+//   btn.addEventListener("click", function (e) {
+//     const question = e.currentTarget.parentElement.parentElement;
+
+//     question.classList.toggle("show-text");
+//   });
+// });
+
+
+
+
+
+
+
+
+// traversing the DOM method one
+// const btns = document.querySelectorAll(".question-btn");
+
+// //loop over btns
+
+// btns.forEach(function (btn) {
+//     btn.addEventListener("click", function(e) {
+//       const question = e.currentTarget.parentElement.parentElement;  
+//       question.classList.toggle("show-text");
+//     });
+// });
+
+
+
+
